@@ -31,14 +31,14 @@ Rule applied on files:
 - null: no type value representing null
 
 ##### Variables
-- output: output variables to be printed as output
-- variable: define the input variable to be used into the terraform code (can contain default value)
-- locals: local (static kind) variable which is used throughout the code
+- [output](./outputs.tf): output variables to be printed as output
+- [variable](./variables.tf): define the input variable to be used into the terraform code (can contain default value)
+- [locals](./vnet/locals.tf): local (static kind) variable which is used throughout the code
 
 
 ##### Block types
-- providers: providers by hashicorp for each clould vendors (like aws, azure, gpc etc.), custom providers can also be created
-- resource: resource block to be defined by providers to create actual cloud resource, it contains resource name and unique label and inside block properties with values
+- [providers](./providers.tf): providers by hashicorp for each clould vendors (like aws, azure, gpc etc.), custom providers can also be created
+- [resource](./main.tf): resource block to be defined by providers to create actual cloud resource, it contains resource name and unique label and inside block properties with values
   Below are meta-arguments defined with resoruce blocks:
    - depends_on: for specifying hidden dependency
    - count: for creating multiple resource instances according to count
@@ -48,7 +48,7 @@ Rule applied on files:
    - `precondition { condition: "", message: "" }`: to set precondition
    - `timeout {create: "60m", delete: "2h"}`: set timeout before being considered to failed
 - data: predefined data (mainly used for taking output from another deployment or predefined deployment by another terraform on which current deployment depends)
-- module: create a terraform module so that it can be reused
+- [module](./main.tf): create a terraform module so that it can be reused
 - checks: create health check and assertion
 - import: import existing infra to terraform 
 
